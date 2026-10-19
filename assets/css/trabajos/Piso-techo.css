@@ -1,0 +1,514 @@
+.work-detail-page {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at top left, rgba(195, 224, 250, 0.82) 0 5%, transparent 5.1%),
+        radial-gradient(ellipse at bottom right, #c3e0fad1 0 8%, transparent 8.1%),
+        #f5faff;
+    color: #173d63;
+}
+
+.work-topbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 26px 8%;
+    box-shadow: none;
+    color: #123f70;
+}
+
+.work-topbar-logo {
+    position: absolute;
+    left: max(4vw, calc((100vw - 1500px) / 2));
+    width: clamp(150px, 18vw, 260px);
+    max-height: 88px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.work-topbar h1 {
+    margin: 0;
+    color: #123f70;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    text-align: center;
+}
+
+.work-topbar h1 span {
+    color: #087bd8;
+}
+
+.work-back {
+    position: absolute;
+    top: 50%;
+    right: max(4vw, calc((100vw - 1500px) / 2));
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    transform: translateY(-50%);
+    border: 1px solid #d4e6f5;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #174b7c;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.work-back:hover {
+    background: #e9f5ff;
+}
+
+.work-main {
+    width: min(1500px, 92vw);
+    margin: 0 auto;
+    padding: 8px 0 60px;
+}
+
+.brand-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 0 0 26px;
+}
+
+.brand-section-icon {
+    display: inline-flex;
+    flex: 0 0 54px;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    color: #087bd8;
+    font-size: 2.3rem;
+}
+
+.brand-section-heading h2 {
+    margin: 0 0 3px;
+    color: #123f70;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.brand-section-heading p {
+    margin: 0;
+    color: #647c92;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 360px));
+    justify-content: center;
+    gap: 20px;
+}
+
+.brand-card {
+    --brand-accent: #087bd8;
+    position: relative;
+    min-width: 0;
+    min-height: 290px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid #e3edf5;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 7px 18px rgba(28, 74, 112, 0.17);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(28, 74, 112, 0.22);
+}
+
+.brand-card::before {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 8px;
+    width: 6px;
+    border-radius: 999px;
+    background: var(--brand-accent);
+    content: "";
+}
+
+.brand-card-lg {
+    --brand-accent: #e31837;
+}
+
+.brand-card-york {
+    --brand-accent: #087bd8;
+}
+
+.brand-card-blueline {
+    --brand-accent: #20b8d2;
+}
+
+.brand-card-samsung {
+    --brand-accent: #174da1;
+}
+
+.brand-card-midea {
+    --brand-accent: #08a9e8;
+}
+
+.brand-card-mcquay {
+    --brand-accent: #10a553;
+}
+
+.brand-card-heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 78px;
+    margin: -2px -2px 6px 5px;
+    padding: 0 0 0 8px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.brand-card-heading::before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 56%;
+    height: 100%;
+    background: transparent;
+    clip-path: polygon(31% 0, 100% 0, 100% 100%, 0 100%);
+    content: "";
+    opacity: 0;
+}
+
+.brand-card h3 {
+    z-index: 1;
+    margin: 0;
+    color: var(--brand-accent);
+    font-size: clamp(1.15rem, 1.4vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.brand-card-heading img {
+    width: 50%;
+    height: 82px;
+    object-fit: contain;
+    object-position: center right;
+    mix-blend-mode: normal;
+    filter: none;
+    border-radius: 8px;
+    background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, #edf7ff 100%);
+}
+
+.brand-card > p {
+    min-height: 42px;
+    margin: 0 0 8px 5px;
+    color: #647c92;
+    font-size: 0.84rem;
+    line-height: 1.4;
+}
+
+.brand-reference {
+    width: 100%;
+    margin: 0 0 10px;
+    padding-top: 7px;
+    border-top: 1px solid #e2edf5;
+}
+
+.brand-reference h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 7px;
+    color: #174b7c;
+    font-size: 0.77rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.brand-reference h4::before,
+.brand-reference h4::after {
+    flex: 1;
+    height: 1px;
+    background: #e2edf5;
+    content: "";
+}
+
+.brand-reference-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.brand-reference-links a {
+    min-height: 32px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: #edf7ff;
+    color: #17518b;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.brand-reference-links a:hover {
+    border-color: #a9d4f2;
+    background: #dff1ff;
+}
+
+.brand-reference-links a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+.brand-contact {
+    width: 100%;
+    min-height: 40px;
+    margin-top: auto;
+    padding: 9px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: linear-gradient(110deg, #07549a, #003b73);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.brand-contact:hover {
+    transform: translateY(-1px);
+    background: #087bd8;
+}
+
+.brand-contact i:first-child {
+    color: #87d7ff;
+}
+
+.work-footer {
+    padding: 17px 6vw;
+    border-top: 1px solid #dce8f1;
+    color: #647c92;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .brand-grid {
+        grid-template-columns: repeat(2, minmax(0, 360px));
+    }
+}
+
+@media (max-width: 680px) {
+    .work-topbar {
+        min-height: 140px;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px 18px 58px;
+    }
+
+    .work-topbar-logo {
+        position: static;
+        width: clamp(125px, 36vw, 165px);
+        max-height: 48px;
+        margin-bottom: 8px;
+    }
+
+    .work-topbar h1 {
+        font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+
+    .work-back {
+        top: auto;
+        right: 50%;
+        bottom: 12px;
+        transform: translateX(50%);
+        white-space: nowrap;
+    }
+
+    .work-main {
+        width: min(100% - 36px, 520px);
+        padding-top: 8px;
+    }
+
+    .brand-section-heading {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .brand-section-icon {
+        flex-basis: 40px;
+        width: 40px;
+        height: 42px;
+        font-size: 1.8rem;
+    }
+
+    .brand-section-heading p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .brand-grid {
+        grid-template-columns: minmax(0, 380px);
+        gap: 15px;
+    }
+
+    .brand-card {
+        min-height: 278px;
+    }
+
+    .brand-card-heading img {
+        width: 46%;
+    }
+}
+
+.work-detail-page .work-topbar {
+    min-height: 250px;
+    padding: 32px clamp(24px, 4.5vw, 72px);
+    gap: clamp(24px, 3vw, 48px);
+    justify-content: space-between;
+    border-bottom: 1px solid #cbd7e2;
+    background:
+        linear-gradient(100deg, rgba(7, 18, 27, 0.96) 0%, rgba(0, 69, 125, 0.8) 54%, rgba(0, 96, 157, 0.28) 100%);
+    box-shadow: none;
+    color: #12365f;
+}
+
+.work-detail-page .work-topbar-logo {
+    position: static;
+    flex: 0 0 auto;
+    width: clamp(210px, 22vw, 340px);
+    max-height: 150px;
+    padding-right: clamp(20px, 3vw, 40px);
+    border-right: 1px solid #b8d8f5;
+    object-position: center;
+}
+
+.work-detail-page .work-topbar-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.work-detail-page .work-topbar h1 span{
+    color:#30d8f2;
+}
+.work-detail-page .work-topbar h1 {
+    max-width: 850px;
+    margin: 0 0 8px;
+    background: linear-gradient(110deg, #087bd8, #00a0e3);
+    background-clip: text;
+    color: #fff;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    text-align: left;
+}
+
+
+
+.work-detail-page .work-topbar-copy p {
+    max-width: 720px;
+    margin: 0;
+    color: #ffff;
+    font-size: clamp(0.92rem, 1.5vw, 1rem);
+    line-height: 1.5;
+}
+
+.work-detail-page .work-back {
+    position: static;
+    flex: 0 0 auto;
+    transform: none;
+    padding: 12px 22px;
+    border-color: #c7dff3;
+    background: rgba(255, 255, 255, 0.82);
+    color: #07559a;
+    font-size: 0.95rem;
+}
+
+.work-detail-page .work-back:hover {
+    border-color: #0878c9;
+    background: #0878c9;
+    color: #fff;
+}
+
+.work-detail-page .work-back:focus-visible {
+    outline: 3px solid #0878c9;
+    outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+    .work-detail-page .work-topbar {
+        min-height: 0;
+        flex-wrap: wrap;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .work-detail-page .work-topbar-logo {
+        width: clamp(165px, 30vw, 220px);
+        max-height: 110px;
+        padding-right: 20px;
+    }
+
+    .work-detail-page .work-topbar-copy {
+        flex-basis: calc(100% - 250px);
+    }
+
+    .work-detail-page .work-topbar h1 {
+        font-size: clamp(1.9rem, 5vw, 2.7rem);
+    }
+
+    .work-detail-page .work-back {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .work-detail-page .work-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px 20px;
+        gap: 16px;
+    }
+
+    .work-detail-page .work-topbar-logo {
+        width: 180px;
+        max-height: 90px;
+        padding: 0 0 12px;
+        border-right: 0;
+        border-bottom: 1px solid #b8d8f5;
+    }
+
+    .work-detail-page .work-topbar-copy {
+        flex-basis: auto;
+    }
+
+    .work-detail-page .work-topbar h1 {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+    }
+
+    .work-detail-page .work-back {
+        margin-left: 0;
+    }
+}

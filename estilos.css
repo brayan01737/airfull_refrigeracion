@@ -1,0 +1,855 @@
+:root {
+    --color-white: #FFFFFF;
+    --color-dark: #0C171E;
+    --color-blue: #003B73;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(180deg, #dfe3e8 0%, #e9edf1 100%);
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   2. ENCABEZADO
+========================= */
+
+header {
+    background-color: transparent;
+    color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.9s ease, box-shadow 0.3s ease;
+}
+
+/* =========================
+   3. HERO / INICIO
+========================= */
+
+.hero {
+    position: relative;
+    height: 98vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: var(--color-white);
+    padding: 0 20px;
+}
+
+/* Carrusel de fondo */
+.carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+/* Capa oscura sobre las imágenes */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+}
+
+/* =========================
+   4. BOTONES
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #00274d;
+}
+
+/* Botón del formulario (verde WhatsApp) */
+.btn-submit {
+    background-color: #25D366;
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   5. ESTRUCTURA GENERAL
+========================= */
+
+.section {
+    padding: 80px 5%;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.bg-alt {
+    background-color: #e5e9ee;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--color-blue);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+
+
+/* =========================
+   6. NOSOTROS
+========================= */
+
+/* --- Bloque superior: texto + imagen + beneficios --- */
+
+.nosotros-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 1fr) 190px;
+    min-height: 360px;
+    overflow: hidden;
+    border-radius:28px 28px 28px 28px;
+    background: #eef7ff;
+}
+
+.nosotros-copy {
+    position: relative;
+    z-index: 2;
+    padding: 52px 34px 38px 42px;
+    background: linear-gradient(112deg, #f2f9ff 0%, #eaf5ff 76%, rgba(234, 245, 255, 0.7) 100%);
+    top: -55px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #147dca;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+
+
+.nosotros-copy .title {
+    margin: 8px 0 12px;
+    color: #063d78;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    text-align: left;
+}
+
+.nosotros-copy .subtitle,
+.nosotros-description {
+    max-width: 540px;
+    margin-bottom: 10px;
+    color: var(--color-blue);
+    font-size: 1.02rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.nosotros-image {
+    min-height: 320px;
+    background: linear-gradient(90deg, hsla(208, 100%, 97%, 0.425), transparent 28%), url('img/portada1.jpg') center / cover;
+    clip-path: ellipse(78% 92% at 55% 50%);
+    border-radius: 20px 0 0 20px;
+    height: 150px;
+}
+
+.nosotros-beneficios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    padding: 28px;
+    background: #064b83;
+    height: 320px;
+    color: var(--color-white);
+}
+
+.nosotros-beneficios div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.nosotros-beneficios div:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.nosotros-beneficios i {
+    width: 38px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* --- Tarjetas Misión y Visión --- */
+
+#nosotros .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:40px;
+    margin-top: -70px;
+}
+
+#nosotros .card {
+    position: relative;
+    min-width: 0;
+    min-height: 205px;
+    padding: 24px 42% 24px 24px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 20px;
+    background: #eef7ff;
+    box-shadow: none;
+    text-align: left;
+}
+
+#nosotros .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 14px 8px 0;
+    border-radius: 50%;
+    background: #0873ca;
+    color: #ffffff;
+    font-size: 1.65rem;
+    vertical-align: middle;
+}
+
+#nosotros .card h3 {
+    display: inline-block;
+    color: #0b3b70;
+    font-size: 1.15rem;
+    vertical-align: middle;
+}
+
+#nosotros .card p {
+    color: #315a82;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+#nosotros .card img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: ellipse(76% 90% at 76% 50%);
+}
+
+/* --- Sectores --- */
+
+.sectores {
+    margin-top: 34px;
+    text-align: center;
+}
+
+.sectores h3 {
+    margin-bottom: 20px;
+    color: var(--color-blue);
+}
+
+.sectores-tags {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sectores-tags span {
+    background: var(--color-dark);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   7. SERVICIOS
+========================= */
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    display: block;
+    overflow: hidden;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    border: 1px solid var(--color-blue);
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(12, 23, 30, 0.12);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(12, 23, 30, 0.2);
+}
+
+.service-card > img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.service-card-content {
+    min-height: 190px;
+    padding: 22px 24px 24px;
+}
+
+.service-card-content h3 {
+    margin-bottom: 8px;
+    color: var(--color-blue);
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.service-card-content p {
+    color: #43515a;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+
+/* =========================
+   8. INSTALACIÓN
+========================= */
+
+#instalacion {
+    border: none;
+    outline: none;
+}
+
+#instalacion .container {
+    border: none;
+    outline: none;
+}
+
+.highlight-box {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+/* =========================
+   9. PROYECTOS
+========================= */
+
+.card-project {
+    position: relative;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 59, 115, 0.08);
+    border-left: 4px solid var(--color-blue);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(12, 23, 30, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-project:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(12, 23, 30, 0.12);
+}
+
+.card-project > img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.card-project:hover > img {
+    transform: scale(1.05);
+}
+
+/* Capa azul que aparece al pasar el mouse */
+.hover-galeria {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 59, 115, 0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px;
+}
+
+.card-project:hover .hover-galeria {
+    opacity: 1;
+}
+
+.hover-galeria img {
+    width: 52px;
+    height: 52px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.hover-galeria p {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   10. CONTACTO
+========================= */
+
+.contact-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+}
+
+.contacto-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1.25fr;
+    align-items: center;
+    gap: 48px;
+}
+
+.contact-copy {
+    padding-right: 20px;
+}
+
+.contact-title {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 5vw, 4.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    color: var(--color-blue);
+    font-weight: 800;
+}
+
+.contact-description {
+    margin-bottom: 28px;
+    color: #4d5a65;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(0, 59, 115, 0.08);
+    color: var(--color-blue);
+    font-size: 1.3rem;
+    box-shadow: inset 0 0 0 1px rgba(0, 59, 115, 0.05);
+}
+
+.contact-item-text h4 {
+    margin-bottom: 4px;
+    color: var(--color-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.contact-item-text p {
+    color: #1e2d39;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.contact-panel {
+    background: #ffffff;
+    border: 1px solid rgba(12, 23, 30, 0.08);
+    border-radius: 24px;
+    padding: 28px 28px 20px;
+    box-shadow: 0 20px 45px rgba(13, 29, 46, 0.08);
+}
+
+.contact-panel h3 {
+    margin-bottom: 10px;
+    color: var(--color-blue);
+    font-size: clamp(1.9rem, 2vw, 2.4rem);
+    line-height: 1.2;
+}
+
+.contact-panel > p {
+    margin-bottom: 20px;
+    color: #55636e;
+    font-size: 0.98rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f8fbff;
+    border: 1px solid rgba(0, 59, 115, 0.2);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrap:focus-within {
+    border-color: rgba(0, 59, 115, 0.5);
+    box-shadow: 0 0 0 4px rgba(0, 59, 115, 0.08);
+}
+
+.input-wrap i {
+    position: absolute;
+    left: 16px;
+    color: rgba(0, 59, 115, 0.8);
+    font-size: 1.05rem;
+    pointer-events: none;
+}
+
+.input-wrap input,
+.input-wrap select,
+.input-wrap textarea {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #122634;
+    font-size: 1rem;
+    padding: 16px 16px 16px 46px;
+    outline: none;
+    resize: vertical;
+}
+
+.input-wrap select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, rgba(0, 59, 115, 0.8) 50%), linear-gradient(135deg, rgba(0, 59, 115, 0.8) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
+
+.input-wrap textarea {
+    min-height: 122px;
+    padding-top: 18px;
+}
+
+.input-wrap input::placeholder,
+.input-wrap textarea::placeholder,
+.input-wrap select:invalid {
+    color: #7a8b96;
+}
+
+.btn-submit {
+    width: 100%;
+    border-radius: 14px;
+    padding: 17px 20px;
+    background: linear-gradient(135deg, #1f9ce8 0%, #0a5ccd 100%);
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 12px 22px rgba(17, 113, 196, 0.24);
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #1787d8 0%, #0a4fb5 100%);
+}
+
+.btn-submit span {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    color: #4b5a65;
+    font-size: 0.92rem;
+}
+
+.security-note i {
+    color: var(--color-blue);
+}
+
+
+/* =========================
+   11. FOOTER Y WHATSAPP FLOTANTE
+========================= */
+
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px;
+}
+
+.wa-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+
+
+/* =========================
+   12. RESPONSIVE
+========================= */
+
+/* ---------- Tablet (hasta 900px) ---------- */
+@media (max-width: 900px) {
+
+    .contacto-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .contact-copy {
+        padding-right: 0;
+    }
+
+    .service-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------- Celular (hasta 768px) ---------- */
+@media (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    /* Hero */
+    .hero-content h2 {
+        font-size: 45px;
+        top: -100px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Nosotros: bloque superior */
+    .nosotros-hero {
+        grid-template-columns: 1fr;
+        border-radius: 10px;
+    }
+
+    .nosotros-copy {
+        padding: 38px 26px 30px;
+    }
+
+    .nosotros-image {
+        min-height: 250px;
+        clip-path: none;
+    }
+
+    .nosotros-beneficios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 22px 18px;
+    }
+
+    .nosotros-beneficios div {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.45);
+        border-bottom: 0;
+        text-align: center;
+    }
+
+    .nosotros-beneficios div:last-child {
+        border-right: 0;
+    }
+
+    /* Nosotros: tarjetas Misión y Visión */
+    #nosotros .card {
+        min-height: 0;
+        padding: 24px 24px 0;
+    }
+
+    #nosotros .card img {
+        position: relative;
+        display: block;
+        width: calc(100% + 48px);
+        height: 150px;
+        margin: 20px -24px 0;
+        clip-path: none;
+    }
+}
+
+/* ---------- Celular pequeño (hasta 520px) ---------- */
+@media (max-width: 520px) {
+
+    .nosotros-copy .title {
+        font-size: 2.3rem;
+    }
+
+    .nosotros-beneficios {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .nosotros-beneficios div,
+    .nosotros-beneficios div:last-child {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 0 0 14px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+        text-align: left;
+    }
+
+    .nosotros-beneficios div:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card > img {
+        height: 210px;
+    }
+}
